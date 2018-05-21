@@ -5,7 +5,7 @@
 <head>
 	{% leaflet_js %}
 	{% leaflet_css %}
-	<title>Our Home</title>
+	<title>Satlapse</title>
 	<style type="text/css">
 		#gis {width: 100%;height:600px;}
 	</style>
@@ -17,10 +17,10 @@
 	<script type="text/javascript" src="{% static 'leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.js' %}" ></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script type="text/javascript" src="{% static 'js/easy-button.js' %}" ></script>
+	<script type="text/javascript" src="{% static 'routing/leaflet-routing-machine.js' %}" ></script>
 </head>
-<script type="text/javascript" src="{% static 'routing/leaflet-routing-machine.js' %}" ></script>
 <body>
-<h3>Am a hero. Am learning Geodjango </h3>
+<h3>Satlapse </h3>
 <script type="text/javascript">
 $("#printBtn").click(function(){
   $('#map').print();
@@ -98,21 +98,6 @@ $("#printBtn").click(function(){
 		};
 
 		L.control.groupedLayers(baseLayers, groupedOverlays).addTo(map);
-
-		var routing =  L.Routing.control({
-		  waypoints: [
-		    L.latLng(-0.23, 36.87),
-		    L.latLng(0.23, 37.64)
-		  ]
-		});
-
-		L.easyButton('fa-compass',
-		  function (){
-		    $('.leaflet-routing-container').is(':visible') ? routing.removeFrom(map) : routing.addTo(map)
-		  },
-		  'Routing'
-		).addTo(map);
-
 
 		function createButton(label, container) {
 		    var btn = L.DomUtil.create('button', '', container);
