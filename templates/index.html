@@ -5,7 +5,7 @@
 <head>
 	{% leaflet_js %}
 	{% leaflet_css %}
-	<center><title>Minnesota Soils</center></title>
+	<title>Minnesota Soils</title>
 	<style type="text/css">
 		#gis {width: 100%;height:600px;}
 	</style>
@@ -20,7 +20,7 @@
 	<script type="text/javascript" src="{% static 'routing/leaflet-routing-machine.js' %}" ></script>
 </head>
 <body>
-<h3>Minnesota Soil Maps</h3>
+<h3><center>Minnesota Soil Maps</center></h3>
 <script type="text/javascript">
 $("#printBtn").click(function(){
   $('#map').print();
