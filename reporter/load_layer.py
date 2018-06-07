@@ -1,17 +1,16 @@
 import os
 from django.contrib.gis.utils import LayerMapping
-from .models import Counties
+from .models import BlueEarth
 
-county_mapping = {
-    'counties' : 'Counties',
-    'codes' : 'Codes',
-    'cty_code' : 'Cty_CODE',
-    'dis' : 'dis',
+blueearth_mapping = {
+    'areasymbol' : 'AREASYMBOL',
+    'spatialver' : 'SPATIALVER',
+    'musym' : 'MUSYM',
+    'mukey' : 'MUKEY',
     'geom' : 'MULTIPOLYGON',
 }
 
-county_shp = os.path .abspath(os.path.join(os.path.dirname(__file__),'data/counties.shp'))
-
+be_shp = os.path .abspath(os.path.join(os.path.dirname(__file__),'data/soilmu_a_mn013.shp'))
 def run(verbose=True):
-	lm = LayerMapping(Counties, county_shp, county_mapping, transform= False, encoding='iso-8859-1')
+	lm = LayerMapping(BlueEarth, be_shp, blueearth_mapping, transform= False, encoding='iso-8859-1')
 	lm.save(strict=True,verbose=verbose)
