@@ -27,3 +27,13 @@ class Counties(models.Model):
 
     class Meta:
         verbose_name_plural = 'Counties'
+
+class BlueEarth(models.Model):
+    areasymbol = models.CharField(max_length=20)
+    spatialver = models.BigIntegerField()
+    musym = models.CharField(max_length=6)
+    mukey = models.CharField(max_length=30)
+    geom = models.MultiPolygonField(srid=4326)
+
+    def __unicode__(self):
+    	return self.areasymbol
