@@ -58,7 +58,11 @@ $("#printBtn").click(function(){
 			onEachFeature: function(feature,layer){
 				layer.bindPopup(feature.properties.counties.toString());
 			}
-
+		});
+		var soils = new L.GeoJSON.AJAX("{% url 'soils' %}",{
+			onEachFeature: function(feature,layer){
+				layer.bindPopup(feature.properties.areasymbol.toString());
+			}
 		});
 
 		var points = new L.GeoJSON.AJAX("{% url 'incidences' %}",{
@@ -82,6 +86,7 @@ $("#printBtn").click(function(){
 
 		//datasets.addTo(map);
 		points.addTo(map);
+		//soils.addTo(map;)
 
 
 		var baseLayers = {
@@ -92,7 +97,8 @@ $("#printBtn").click(function(){
 		var groupedOverlays = {
 		  "Layers": {
 		    "counties": datasets,
-		    "incidences": points
+		    "incidences": points,
+				"soils": soils
 		  }
 
 		};

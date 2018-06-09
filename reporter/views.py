@@ -3,7 +3,8 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.core.serializers import serialize
 from django.http import HttpResponse
-from models import Counties,Incidences
+from models import Counties,Incidences, BlueEarth
+
 # Create your views here.
 class HomePageView(TemplateView):
     template_name = 'index.html'
@@ -14,4 +15,8 @@ def county_datasets(request):
 
 def point_datasets(request):
 	points = serialize('geojson', Incidences.objects.all())
+	return HttpResponse(points,content_type='json')
+
+def soil_datasets(request):
+	points = serialize('geojson', BlueEarth.objects.all())
 	return HttpResponse(points,content_type='json')
