@@ -2,7 +2,7 @@
 Soil Maps using Django
 
 Activate Virtual Environment:
-johnny@johnny-ubuntubox:~/projects/geodjango/satlapse$ . bin/activate
+/projects/geodjango/satlapse$ . bin/activate
 
 Nav to manage.py file and run:
 python manage.py runserver
